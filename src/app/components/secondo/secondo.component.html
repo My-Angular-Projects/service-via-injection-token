@@ -1,0 +1,13 @@
+<div>
+    <button type="button" (click)="getPosts()">Get Posts</button>
+</div>
+
+@if ((posts$ | async)?.length) {
+<ul>
+    @for (post of (posts$ | async); track post.id) {
+    <li>{{ post.title }}</li>
+    } @empty {
+    <li>There are no posts.</li>
+    }
+</ul>
+}
